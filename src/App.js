@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ItemList from "./components/coffeeList.js";
 import OptionList from "./components/userOptions.js";
+import PropTypes from 'prop-types';
 
 const App = () => {
   const [items, setItems] = useState([
@@ -103,6 +104,31 @@ const App = () => {
       </div>
     );
   }
+};
+App.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+  })).isRequired,
+  newItem: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    quantity: PropTypes.number.isRequired,
+  }).isRequired,
+  form1visible: PropTypes.bool.isRequired,
+  form2visible: PropTypes.bool.isRequired,
+  selectedItem: PropTypes.string, 
+  selectedDescription: PropTypes.string, 
+  addItem: PropTypes.func.isRequired,
+  updateItem: PropTypes.func.isRequired,
+  deleteItem: PropTypes.func.isRequired,
+  sellItem: PropTypes.func.isRequired,
+  toggleForm: PropTypes.func.isRequired,
+  toggleDescription: PropTypes.func.isRequired,
+  handleRadioChange: PropTypes.func.isRequired,
+  getDescription: PropTypes.func.isRequired,
 };
 
 export default App;
