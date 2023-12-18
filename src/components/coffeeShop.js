@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Item({ item, onSell, onDelete, onToggleForm2 }) {
+
+function Item({ item, onSell, onDelete, toggleDescription }) {
     return (
         <div>
             <h2>{item.name}</h2>
@@ -9,7 +10,7 @@ function Item({ item, onSell, onDelete, onToggleForm2 }) {
             <p>{item.quantity > 0 ? `Quantity: ${item.quantity}` : 'Bag empty'}</p>
             <button onClick={() => onSell(item.id)}>Sell</button>
             <button onClick={() => onDelete(item.id)}>Delete</button>
-            <button onClick={() => onToggleForm2(item)}>Description</button>
+            
         </div>
     );
 }
@@ -23,10 +24,11 @@ Item.propTypes = {
     }).isRequired,
     onSell: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
-    onToggleForm2: PropTypes.func.isRequired, // Add this line
+    
 };
 
 export default Item;
+
 
 
 // import React from 'react';
