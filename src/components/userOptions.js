@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function OptionList({ onAddItem }) {
     const [selectedOption, setSelectedOption] = useState('');
@@ -72,5 +73,8 @@ function OptionList({ onAddItem }) {
     );
 }
 
-export default OptionList;
+OptionList.propTypes = {
+    onAddItem: PropTypes.func.isRequired,
+};
 
+export default OptionList;
